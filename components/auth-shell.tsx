@@ -19,7 +19,7 @@ export function AuthShell({
   return (
     <main className="flex min-h-svh flex-col items-center justify-center gap-8 bg-muted/40 px-4 py-12">
       <div className="flex flex-col items-center gap-2 text-center">
-        <div className="flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+        <div className="brand-gradient flex size-11 items-center justify-center rounded-xl text-primary-foreground shadow-sm">
           <Sparkles className="size-5" />
         </div>
         <p className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
