@@ -49,6 +49,23 @@ export async function POST(req: Request) {
   })
 
   return createUIMessageStreamResponse({
-    stream: toUIMessageStream({ stream: result.stream }),
+    stream: toUIMessageStream({
+      stream: result.stream,
+      onError: (error) => {
+        const message = error instanceof Error ? error.message : String(error)
+        console.log("[v0] generate stream error:", message)
+
+        // Surface the AI Gateway billing gate with a clear, actionable message
+        // instead of the default masked "An error occurred."
+        if (
+          message.includes("credit card") ||
+          message.includes("customer_verification_required")
+        ) {
+          return "The AI Gateway needs a payment method before it can generate content. Add a card to your Vercel AI settings to unlock free credits, then try again."
+        }
+
+        return "Something went wrong generating content. Please try again."
+      },
+    }),
   })
 }

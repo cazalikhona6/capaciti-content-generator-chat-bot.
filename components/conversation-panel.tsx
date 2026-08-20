@@ -144,11 +144,14 @@ export function ConversationPanel({
             )}
 
             {status === "error" && (
-              <p role="alert" className="text-sm font-medium text-destructive">
-                {error?.message?.includes("401")
-                  ? "Your session expired. Please sign in again."
-                  : "Something went wrong generating content. Please try again."}
-              </p>
+              <div
+                role="alert"
+                className="rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-2.5 text-sm font-medium text-destructive"
+              >
+                {error?.message && !error.message.includes("401")
+                  ? error.message
+                  : "Your session expired. Please sign in again."}
+              </div>
             )}
           </div>
         )}
