@@ -14,7 +14,7 @@ export function AppHeader({ email }: { email: string }) {
   async function signOut() {
     setLoading(true)
     await authClient.signOut()
-    router.push("/sign-in")
+    router.push("/")
     router.refresh()
   }
 
@@ -22,7 +22,7 @@ export function AppHeader({ email }: { email: string }) {
     <header className="border-b bg-card">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <div className="flex items-center gap-2.5">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <div className="brand-gradient flex size-8 items-center justify-center rounded-lg text-primary-foreground shadow-sm">
             <Sparkles className="size-4" />
           </div>
           <div className="leading-tight">

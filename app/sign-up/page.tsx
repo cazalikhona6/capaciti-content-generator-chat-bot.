@@ -6,7 +6,7 @@ import { AuthShell } from "@/components/auth-shell"
 
 export default async function SignUpPage() {
   const session = await auth.api.getSession({ headers: await headers() })
-  if (session?.user) redirect("/")
+  if (session?.user) redirect("/studio")
 
   return (
     <AuthShell

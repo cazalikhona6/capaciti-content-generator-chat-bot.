@@ -49,7 +49,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
           return
         }
       }
-      router.push("/")
+      router.push("/studio")
       router.refresh()
     } catch {
       setError("Something went wrong. Please try again.")
